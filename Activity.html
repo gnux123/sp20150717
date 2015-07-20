@@ -9,7 +9,6 @@
 <body>
 <base target="_blank">
 
-
 <style>
 body {
   margin:0;
@@ -17,6 +16,8 @@ body {
   background: #f3e9dd url("images/main_bg.jpg") top center no-repeat;
 
 }
+
+a img { border: 0; }
 
 .container > div {
   margin:0 auto;
@@ -31,7 +32,7 @@ body {
 .main {
   position:relative;
   background: url("images/mainGraphic.jpg") center no-repeat;
-  height: 769px;
+  height: 768px;
 }
 
 .main > .links {
@@ -41,7 +42,7 @@ body {
   overflow: hidden;
 }
 
-.main > .links.link01 {
+.main > .links.link02 {
   top: 385px;
   left: 84px;
   width: 223px;
@@ -49,7 +50,7 @@ body {
   background: url("images/links01.jpg") center no-repeat;
 }
 
-.main > .links.link02 {
+.main > .links.link01 {
   top: 584px;
   left: 307px;
   width: 271px;
@@ -100,15 +101,29 @@ body {
 div.table-4b,
 div.table-6s1b,
 div.table-2b4s {
+  position: relative;
   margin:0 auto;
   padding:27.5px 0;
   width:1025px;
-  height:100%;
-  clear:both;
+  height:auto;
+}
+
+div.table-4b:after,
+div.table-6s1b:after,
+div.table-2b4s:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 
 div.table-2b4s {
   padding:17.5px 0;
+}
+
+div.table-4b {
+  padding:20px 0;
 }
 
 div.table-4b > div {
@@ -117,16 +132,10 @@ div.table-4b > div {
   margin-top: 15px;
   float:left;
   padding: 15px;
-  width: 505px;
-  height: 345px;
+  width: 475px;
+  height: 315px;
   background:#fff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
-div.table-4b > div:nth-child(1),
-div.table-4b > div:nth-child(3) { margin-left: 0; }
-div.table-4b > div:nth-child(1),
-div.table-4b > div:nth-child(2) { margin-top: 0; }
 
 div.table-4b .itemBox .pic,
 div.table-4b .itemBox .pic img {
@@ -140,20 +149,50 @@ div.table-4b .itemBox .txt {
 }
 
 </style>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("a.links").each(function(){
+      $(this).click(function(){
+        var $target = $(this).attr("class").split(" ").pop().split("link").pop();
+        smoothScroll($target);
+      });
+    });
+
+    function smoothScroll(obj) {
+      var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+
+      $body.animate({
+        scrollTop: $('#prods'+obj).offset().top
+      }, 1500);
+      return false;
+    }
+});
+
+//GoTop
+function GoTop() {
+  $(function(){
+    var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+    $body.animate({ scrollTop: $body.offset().top }, 1500);
+    return false;
+  });
+}
+</script>
+
 <div class="content">
     <div class="container">
       <div class="main">
-          <a class="links link01" href="javascript:void(0);">幸福金絲麵</a>
-          <a class="links link02" href="javascript:void(0);">大呷麵本家</a>
+          <a class="links link02" href="javascript:void(0);">幸福金絲麵</a>
+          <a class="links link01" href="javascript:void(0);">大呷麵本家</a>
           <a class="links link03" href="javascript:void(0);">柚強生態果園</a>
       </div>
-      <div class="prodMains prodMain01">
+      <div id="prods01" class="prodMains prodMain01">
         <img src="images/prodsMain01.jpg" alt="">
       </div>
       <div class="full prodMain01-Sub">
         <div class="wraps">
           <div class="table-4b">
-            <div class="itemBox" itemID="5">
+            <div class="itemBox" itemID="5" style="margin-left:0;">
                 <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
                 <div class="txt" style="position:absolute; right:15px; bottom:50px;">
                     <a href="/賣場連結" style="text-align:center; text-decoration:none;">
@@ -171,7 +210,7 @@ div.table-4b .itemBox .txt {
                     </a>
                 </div>
             </div>
-            <div class="itemBox" itemID="5">
+            <div class="itemBox" itemID="5"  style="margin-left:0;">
                 <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
                 <div class="txt" style="position:absolute; right:15px; bottom:50px;">
                     <a href="/賣場連結" style="text-align:center; text-decoration:none;">
@@ -192,7 +231,7 @@ div.table-4b .itemBox .txt {
           </div>
         </div>
       </div>
-      <div class="prodMains prodMain02">
+      <div id="prods02" class="prodMains prodMain02">
         <img src="images/prodsMain02.jpg" alt="">
       </div>
       <div class="full prodMain02-Sub">
@@ -264,7 +303,7 @@ div.table-4b .itemBox .txt {
             </div>
         </div>
       </div>
-      <div class="prodMains prodMain03">
+      <div id="prods03" class="prodMains prodMain03">
         <img src="images/prodsMain03.jpg" alt="">
       </div>
       <div class="full prodMain03-Sub">
