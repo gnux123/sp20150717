@@ -15,7 +15,10 @@ body {
   padding:0;
   background: #f3e9dd url("images/main_bg.jpg") top center no-repeat;
 
+  font-family: arial, "微軟正黑體";
 }
+
+a { text-decoration: none; }
 
 a img { border: 0; }
 
@@ -70,20 +73,16 @@ a img { border: 0; }
    text-align: center;
 }
 
-.container > div.prodMain01-Sub {
-  height: 760px;
-  background: url("images/prodMain01-sub-bg.jpg") center no-repeat;
-}
-
-.container > div.prodMain02-Sub {
-  height: 760px;
-  background: url("images/prodMain02-sub-bg.jpg") center no-repeat;
-}
-
+.container > div.prodMain01-Sub,
+.container > div.prodMain02-Sub,
 .container > div.prodMain03-Sub {
-  height: 760px;
-  background: url("images/prodMain03-sub-bg.jpg") center no-repeat;
+  padding: 27.5px 0;
+  height: 705px;
 }
+
+.container > div.prodMain01-Sub { background: url("images/prodMain01-sub-bg.jpg") center no-repeat; }
+.container > div.prodMain02-Sub { background: url("images/prodMain02-sub-bg.jpg") center no-repeat; }
+.container > div.prodMain03-Sub { background: url("images/prodMain03-sub-bg.jpg") center no-repeat; }
 
 .container > div.nofity {
   height: 460px;
@@ -97,20 +96,16 @@ a img { border: 0; }
 }
 
 
-/* table */
-div.table-4b,
-div.table-6s1b,
-div.table-2b4s {
+/* table common settings */
+.tables {
   position: relative;
   margin:0 auto;
-  padding:27.5px 0;
-  width:1025px;
-  height:auto;
+  width: 1025px;
+  height: 705px;
 }
 
-div.table-4b:after,
-div.table-6s1b:after,
-div.table-2b4s:after {
+.tables:after,
+.itemBox:after {
   clear: both;
   content: ".";
   display: block;
@@ -118,34 +113,160 @@ div.table-2b4s:after {
   visibility: hidden;
 }
 
-div.table-2b4s {
-  padding:17.5px 0;
+.cubes {
+  float:left;
+  padding: 10px;
+  background: #fff;
 }
 
-div.table-4b {
-  padding:20px 0;
-}
-
-div.table-4b > div {
+.cubes,
+.cubes .itemBox {
   position: relative;
-  margin-left:15px;
+  height: 325px;
+}
+
+/* cubes-small module settings */
+.cubes.small,
+.cubes.small .itemBox {
+  width: 225px;
+}
+
+.cubes.small .itemBox .pic,
+.cubes.small .itemBox .pic a,
+.cubes.small .itemBox .pic a img,
+.cubes.small .itemBox .txt,
+.cubes.small .itemBox .txt a {
+  display: block;
+  width: 100%;
+}
+
+.cubes.small .itemBox .pic,
+.cubes.small .itemBox .pic a,
+.cubes.small .itemBox .pic a img {
+  height: 225px;
+}
+
+.cubes.small .itemBox .txt,
+.cubes.small .itemBox .txt a {
+  height: 85px;
+}
+
+.cubes.small .itemBox .txt {
   margin-top: 15px;
-  float:left;
-  padding: 15px;
-  width: 475px;
-  height: 315px;
-  background:#fff;
 }
 
-div.table-4b .itemBox .pic,
-div.table-4b .itemBox .pic img {
-  float:left;
-  width: 330px;
-  height: 310px;
+.cubes.small .itemBox .marketPrice {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
-div.table-4b .itemBox .txt {
-  float:right;
+.cubes.small .itemBox .buyNow {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+
+}
+
+
+/* cubes-wilds module settings */
+.cubes.wilds,
+.cubes.wilds .itemBox {
+  width: 485px;
+}
+
+.cubes.wilds .itemBox .pic,
+.cubes.wilds .itemBox .pic a,
+.cubes.wilds .itemBox .pic a img {
+  display: block;
+  width: 325px;
+  height: 325px;
+}
+.cubes.wilds .itemBox .pic {
+  float:left;
+}
+
+.cubes.wilds .itemBox .txt,
+.cubes.wilds .itemBox .buyNow {
+  float: right;
+  display: block;
+  width: 150px;
+}
+
+.cubes.wilds .itemBox .txt {
+  position: relative;
+  height: 280px;
+}
+
+.cubes.wilds .itemBox .txt a {
+  position: absolute;
+  bottom:0;
+  left:0;
+  text-align: center;
+}
+
+.cubes.wilds .itemBox .buyNow {
+  width: 136px;
+  right:0;
+  bottom:0;
+  height:45px;
+
+  line-height: 45px;
+  text-align: center;
+}
+
+.cubes.wilds .itemBox .buyNow:before {
+  left: 35px;
+  top: 16px;
+}
+
+div.cubes.fruitSp {
+  background: #fff url(images/fruitBg.jpg)  no-repeat;
+  background-position: right top;
+}
+
+
+/* itemBox settings */
+
+.itemBox h3 {
+  margin:0;
+  padding:0;
+  color: #360000;
+
+  font-size: 20px;
+  font-weight: lighter;
+  line-height: 22px;
+}
+
+.itemBox .marketPrice {
+  font-size: 25px;
+  line-height: 30px;
+  color: #A80027;
+}
+
+
+.itemBox .buyNow {
+  position: absolute;
+  padding-left:14px;
+  cursor: pointer;
+
+  color: #666;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.itemBox .buyNow:before {
+  position: absolute;
+  left:0;
+  top:4px;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10.4px;
+  border-color: transparent transparent transparent #666666;
 }
 
 </style>
@@ -191,42 +312,71 @@ function GoTop() {
       </div>
       <div class="full prodMain01-Sub">
         <div class="wraps">
-          <div class="table-4b">
-            <div class="itemBox" itemID="5" style="margin-left:0;">
-                <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+          <div class="tables">
+            <div class="cubes wilds" style="margin:0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5">
-                <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes wilds" style="margin:0 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5"  style="margin-left:0;">
-                <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+
+            <div class="cubes wilds" style="margin:15px 0 0 0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5">
-                <div class="pic border"><a href="/賣場連結"><img src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes wilds" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
           </div>
         </div>
@@ -236,71 +386,120 @@ function GoTop() {
       </div>
       <div class="full prodMain02-Sub">
         <div class="wraps">
-            <div class="table-6s1b">
-              <div class="itemBox" itemID="5" style="float:left; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
+          <div class="tables">
+            <div class="cubes small" style="margin:0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
                       </a>
                   </div>
-              </div>
-              <div class="itemBox" itemID="5" style="float:left; margin-left:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
                       </a>
                   </div>
-              </div>
-              <div class="itemBox" itemID="5" style="float:left; margin-left:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="itemBox" itemID="5" style="float:left; margin-left:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="itemBox" itemID="5" style="float:left; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="itemBox" itemID="5" style="float:left; margin-left:15px; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="width:225px;">
-                      <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                          <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                          <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                      </a>
-                  </div>
-              </div>
-              <div class="itemBox" itemID="5" style="position:relative; float:left; margin-left:15px; margin-top:15px; width:505px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                  <div class="pic border" style="width:330px; height:315px;"><a href="/賣場連結"><img width="330" height="315" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                  <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                      <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                          <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                          <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                      </a>
-                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
               </div>
             </div>
+            <div class="cubes small" style="margin:0 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+            <div class="cubes small" style="margin:0 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+            <div class="cubes small" style="margin:0 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+            <div class="cubes small" style="margin:15px 0 0 0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+            <div class="cubes small" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+            <div class="cubes wilds" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="prods03" class="prodMains prodMain03">
@@ -308,60 +507,102 @@ function GoTop() {
       </div>
       <div class="full prodMain03-Sub">
         <div class="wraps">
-          <div class="table-2b4s">
-            <div class="itemBox" itemID="5" style="position:relative; float:left; margin-top:15px; width:505px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:330px; height:315px;"><a href="/賣場連結"><img width="330" height="315" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+          <div class="tables">
+            <div class="cubes wilds fruitSp" style="margin:0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5" style="position:relative; float:left; margin-top:15px; margin-left:15px; width:505px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:330px; height:315px;"><a href="/賣場連結"><img width="330" height="315" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="position:absolute; right:15px; bottom:50px;">
-                    <a href="/賣場連結" style="text-align:center; text-decoration:none;">
-                        <h3 title="{{Name}}" style="font-size:20px; color:#000;">{{Name.20}}</h3>
-                        <span class="price" style="font-size:25px; color:#A80027;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes wilds fruitSp" style="margin:0 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                          <h3 title="{{Name}}">{{Name.20}}</h3>
+                          <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5" style="float:left; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="width:225px;">
-                    <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                        <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                        <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes small" style="margin:15px 0 0 0;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5" style="float:left; margin-left:15px; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="width:225px;">
-                    <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                        <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                        <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes small" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5" style="float:left; margin-left:15px; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="width:225px;">
-                    <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                        <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                        <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes small" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
-            <div class="itemBox" itemID="5" style="float:left; margin-left:15px; margin-top:15px; width:245px; height:345px; background:#fff; padding:10px; box-sizing:border-box; -webkit-box-sizing:border-box;">
-                <div class="pic border" style="width:225px; height:225px;"><a href="/賣場連結"><img width="225" height="225" src="img/itemPic.jpg" alt="{{Name}}" /></a></div>
-                <div class="txt" style="width:225px;">
-                    <a href="/賣場連結" style="text-decoration:none; width: 100%;">
-                        <h3 title="{{Name}}" style="color:#000; font-size:20px;">{{Name.20}}</h3>
-                        <span class="price" style="float:right;  color:#A80027; font-size:25px;">{{price}}</span>
-                    </a>
-                </div>
+            <div class="cubes small" style="margin:15px 0 0 15px;">
+              <div class="itemBox" itemID="5">
+                  <div class="pic">
+                      <a href="/賣場連結">
+                          <img src="/產品圖" alt="{{Name}}" />
+                      </a>
+                  </div>
+                  <div class="txt">
+                      <a href="/賣場連結">
+                        <h3 title="{{Name}}">{{Name.20}}</h3>
+                        <span class="marketPrice">{{marketPrice}}</span>
+                      </a>
+                  </div>
+                  <div class="buyNow" onclick="buyNow()">立即購買</div>
+              </div>
             </div>
           </div>
         </div>
